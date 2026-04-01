@@ -71,7 +71,7 @@ class Ball:
     y: float
 ```
 
-This is used to keep track of the location of the ball on the screen. Tweens operator on fields of objects, so by making a `Ball` object we may tween the `y` (or `x`) fields.
+This is used to keep track of the location of the ball on the screen. Tweens operate on fields of objects, so by making a `Ball` object we may tween the `y` (or `x`) fields.
 
 ```python
 # 4 second qudratic fall to center of screen.
@@ -95,6 +95,26 @@ Lastly, the `TweenManager` needs the time to update each tween it is managing. T
 ty.default_manager.update(dt)
 ```
 
+## `chain`
+
+If you perform
+
+```python
+ty.default_manager.add(t1)
+ty.default_manager.add(t2)
+```
+
+It will run both tweens simultaneously. If we want to run `t1` then `t2` we may `chain` them together:
+
+```python
+t3 = chain([t1, t2])
+ty.default_manager.add(t3)
+```
+
+Using `chain`, complicated tweens can be made from smaller tweens. See [this](https://github.com/thyrgle/transytion/blob/main/examples/chained_tween.py) for a complete simple example.
+
 ## A Brief Overview of the Library
 
-The code for the `Tween` class roughly implements a (doubly) linked list (with a couple super powers!) that store `TweenNode` data. You can think of each `TweenNode` as being a fundamental building block for creating more complex `Tween` objects.
+The code for the `Tween` class roughly implements a (doubly) linked list (with a couple super powers!) that store `TweenNode` data. You can think of each `TweenNode` as being a fundamental building block for creating more complex `Tween` objects (but for convenience, the API allows you to just use the `Tween` class).
+
+The `TweenManager` keeps a list of tweens and in a [slightly tricky `for` loop progresses through each tween.](https://github.com/thyrgle/transytion/blob/653b9f03412eb16d1af77447b69ba199343dc34e/src/transytion/__init__.py#L91)
