@@ -87,7 +87,7 @@ This constructs our tween. It should be pointed out, by itself, the `Tween` obje
 ty.default_manager.add(fall) # Start the tween.
 ```
 
-The starts running once it is added to a `TweenManager` object. You can make as many manager objects as you want, but you need at least one, and it is perfectly reasonable to use just one. That is why `transytion` includes a `default_manager` for ease of use.
+Once the tween is added to a `TweenManager` object, (such as `ty.default_manager`) the tween begins execution. You can make as many manager objects as you want, but you need at least one, and it is perfectly reasonable to use just one. That is why `transytion` includes a `default_manager` for ease of use.
 
 Lastly, the `TweenManager` needs the time to update each tween it is managing. This is done by going to your game loop and adding the line
 
@@ -104,14 +104,14 @@ ty.default_manager.add(t1)
 ty.default_manager.add(t2)
 ```
 
-It will run both tweens simultaneously. If we want to run `t1` then `t2` we may `chain` them together:
+`ty.default_manager` will run both tweens simultaneously. If we want to run `t1` to execute and then `t2` we may `chain` them together:
 
 ```python
 t3 = chain([t1, t2])
 ty.default_manager.add(t3)
 ```
 
-Using `chain`, complicated tweens can be made from smaller tweens. See [this](https://github.com/thyrgle/transytion/blob/main/examples/chained_tween.py) for a complete simple example.
+Using `chain`, complicated tweens can be made from smaller tweens. See [this](https://github.com/thyrgle/transytion/blob/main/examples/chained_tween.py) for a complete example.
 
 ## A Brief Overview of the Library
 
