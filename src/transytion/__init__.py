@@ -2,6 +2,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from itertools import pairwise
 from dataclasses import dataclass
+from copy import copy
 from typing import Any
 
 from .ease_funcs import linear
@@ -30,10 +31,11 @@ class Tween:
 class TweenNode:
     duration: float
     obj: Any
-    targets: dict[(str, float)] # String of the attributes you want to mutate!
-    start: dict[(str, float)] | None = None
+    targets: dict[str, float] # String of the attributes you want to mutate!
+    start: dict[str, float] | None = None
     ease_func: Callable[[float], float] = linear
     callback: Callable[[], None] = lambda: None
+    args: tuple[Any, ...] = ()
     _progress: float = 0.0
     _next_: TweenNode | None = None
     _prev_: TweenNode | None = None
@@ -98,7 +100,7 @@ class TweenManager:
             if tween_node.progress < 1.0: # TweenNode in process.
                 tween_node.progress += dt / tween_node.duration
             else: # TweenNode finished, move to the next.
-                tween_node.callback()
+                tween_node.callback(*tween_node.args)
                 # Mut to next is here.
                 self._to_update[i]._cur = tween_node._next_
                 if self._to_update[i]._cur is not None:
@@ -125,6 +127,37 @@ class TweenManager:
 
 default_manager = TweenManager()
 
+
+def tween_then_call(tween, manager=default_manager):
+    """Intended to be used as a decorator. Given a function f, f(args) now 
+    executes the tween *then* calls the function.
+    
+    NOTE: f(args) followed by f(args) will not block the second call. Two 
+    tweens will be added and both will do a double execution of f.
+    NOTE: Because of Python limitations, cannot return value."""
+    def decorator(func):
+        def wrapper(*args):
+            twn_cpy = copy(tween)
+            twn_cpy._last.args = args
+            twn_cpy._last.callback = func
+            manager.add(twn_cpy)
+        return wrapper
+    return decorator
+
+def call_then_tween(tween, manager=default_manager):
+    """Intended to be used as a decorator. Given a function f, f(args) now 
+    executes and then starts the tween.
+    
+    NOTE: f(args) followed by f(args) will not block the second call. Two 
+    tweens will be added and both will do a double execution of f."""
+    def decorator(func):
+        def wrapper(*args):
+            result = func(*args)
+            twn_cpy = copy(tween)
+            manager.add(twn_cpy)
+            return result
+        return wrapper
+    return decorator
 
 def chain(tweens: list[Tween]) -> Tween:
     """Take a list of tweens and create a single tween that is equivalent to 
