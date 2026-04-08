@@ -150,6 +150,7 @@ class TweenNode:
             loc = (1 - p) * self._original[var] + p * self._destinations[var]
             setattr(self.obj, var, loc)
 
+
 class TweenManager:
     """Keeps track of updating tweens in an update loop."""
     def __init__(self):
