@@ -26,6 +26,7 @@ def sine(x: float) -> float:
 # Common in-out functions (in is just the original function).
 # See https://hump.readthedocs.io/en/latest/timer.html#tweening-methods for
 # more information.
+# Supply an easeing function *as* an argument to either `out` or `inout`.
 
 def inout(f: Callable[[float], float]) -> Callable[[float], float]:
     def g(x: float) -> float:
