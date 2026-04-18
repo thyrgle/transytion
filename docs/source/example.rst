@@ -47,9 +47,11 @@ This library allows you to make tweens and compose them with other tweens that c
 
    pygame.quit()
 
-This is a modification of the first example presented `here <https://pyga.me/docs/>`_. It is recommended you become familiar with that example, and then continue with this example. If you run the program, a red circle moves down the screen. 
+This is a modification of the first example presented `here <https://pyga.me/docs/>`_. It is recommended you become familiar with that example, and then continue with this example. If you run the program, a red circle moves down the screen.
+
+-----------------
 What is going on?
-=================
+-----------------
 
 .. code-block:: python
 
