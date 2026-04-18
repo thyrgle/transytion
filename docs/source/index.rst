@@ -1,8 +1,3 @@
-.. transytion documentation master file, created by
-   sphinx-quickstart on Sat Apr 18 15:27:34 2026.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 transytion documentation
 ========================
 
