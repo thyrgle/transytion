@@ -16,6 +16,7 @@ build-backend = "uv_build"
 [dependency-groups]
 docs = [
     "sphinx>=9.0.4",
+    "sphinx-automodapi>=0.22.0",
 ]
 examples = [
     "pygame-ce>=2.5.7",

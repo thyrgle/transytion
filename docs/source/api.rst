@@ -1,8 +1,6 @@
 API
 ===
 
-.. autosummary::
-   :toctree: generated
+.. automodapi:: transytion
 
-   transytion
-   transytion.ease_funcs
+.. automodapi:: transytion.ease_funcs
