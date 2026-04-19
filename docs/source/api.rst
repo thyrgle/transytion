@@ -5,3 +5,4 @@ API
    :toctree: generated
 
    transytion
+   transytion.ease_funcs
