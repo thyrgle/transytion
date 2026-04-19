@@ -15,4 +15,5 @@ Contents
    tween
    example
    chaining
+   decorators
    api
