@@ -152,3 +152,7 @@ say_something()
 The `@tween_then_call(tween)` decorator delays function calls to execute after the supplied tween executes. Thus, we can focus on game logic first *then* decorate the logic to incorporate tweens.
 
 A full example of this (that is, with a gameloop) can be found [here.](https://github.com/thyrgle/transytion/blob/main/examples/tween_then_call.py)
+
+# Documentation
+
+Further documentation can be found on [readthedocs.](https://transytion.readthedocs.io/en/latest/)
