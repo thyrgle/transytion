@@ -157,3 +157,7 @@ A full example of this (that is, with a gameloop) can be found [here.](https://g
 # Documentation
 
 Further documentation can be found on [readthedocs.](https://transytion.readthedocs.io/en/latest/)
+
+# Contributing
+
+Feel free to [file an issue](https://github.com/thyrgle/transytion/issues), [make a pull request](https://github.com/thyrgle/transytion/pulls) or, if you really like the project, [donate.](https://www.paypal.com/donate/?business=9ZQ9S6RJBVATY&no_recurring=0&currency_code=USD) (No pressure though.)
