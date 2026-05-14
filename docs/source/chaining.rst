@@ -44,12 +44,14 @@ What Went Wrong? (And How to Fix)
 For more complicated movements, we may need to tween multiple values at once. In fact, this is more likely to happen than sequentially running tween after tween. Thus, simply adding the tweens to a manager will run them *concurrently*. Fortunately, it is not too hard to fix. We will use the ``transytion.chain`` function to force a sequence of tweens to run in order. Replace:
 
 .. code-block:: python
+
    ty.default_manager.add(fall)
    ty.default_manager.add(roll)
 
 with
 
 .. code-block:: python
+
    ty.default_manager.add(ty.chain([fall, roll]))
 
 The ``transytion.chain``, in this case, will return a new tween that runs the ``fall`` tween and *then* the ``roll`` tween.
