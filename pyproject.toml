@@ -17,7 +17,6 @@ build-backend = "uv_build"
 docs = [
     "sphinx>=9.0.4",
     "sphinx-automodapi>=0.22.0",
-    "sphinxcontrib-video>=0.4.2",
 ]
 examples = [
     "pygame-ce>=2.5.7",
