@@ -99,7 +99,7 @@ For the sake of completeness, here is the entire example (it should look similar
        ty.default_manager.update(dt)
  
        screen.fill((0,0,0))
-       pygame.draw.circle(screen, "red", (ball.x, ball.y), 40)
+       pygame.draw.circle(screen, "red", (ball.x, ball.y), ball.r)
 
        pygame.display.flip()
        dt = clock.tick(60) / 1000
