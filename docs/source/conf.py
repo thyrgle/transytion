@@ -17,7 +17,8 @@ release = '0.2.0'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
-    'sphinx_automodapi.automodapi'
+    'sphinx_automodapi.automodapi',
+    'sphinxcontrib.video'
 ]
 numpydoc_show_class_members = False
 

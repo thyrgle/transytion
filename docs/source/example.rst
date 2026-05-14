@@ -48,7 +48,9 @@ This library allows you to make tweens and compose them with other tweens that c
 
    pygame.quit()
 
-This is a modification of the first example presented `here <https://pyga.me/docs/>`_. It is recommended you become familiar with that example, and then continue with this example. If you run the program, a red circle will fall and bounce on the screen.
+This is a modification of the first example presented `here <https://pyga.me/docs/>`_. It is recommended you become familiar with that example, and then continue with this example. If you run the program, a red circle will fall and bounce on the screen. If you run the example, you should see:
+
+.. video:: simple_tween.mp4
 
 -----------------
 What is going on?
